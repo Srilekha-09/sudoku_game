@@ -1,8 +1,28 @@
-# sudoku_game
+### sudoku_game
+
+• Sudoku is played on a grid of 9 x 9 spaces.Within the rows and columns are 9 "squares" (made up of 3 x 3 spaces).
+
+•Each row, column and square (9 spaces each) needs to be filled out with the numbers 1-9, without repeating any numbers within the row, column of square.
+
+A backend in the tech stack which exposes an API which returns the necessary response.
+
+• When a Request with body "START" is sent to the API, It must send a response of "READY" after resetting the game of Sudoku and starting a fresh game.
+
+Whenever a valid number is inserted, it should return "Valid" or "Invalid"
+
+• Any method can be used for Move insertion. GET /move/row/col or POST /move with row & column as body or any other way
+
+Sudoku skeleton can be set in the backend or taken in the request form from the user
+
+• The API must return a suggested move after 3 consecutive invalid responses,
+
+The game should continue unit the sudoku is solved.
+
+## working
 
 Please note that the instructions assume you are using a Windows operating system.
 
-Backend Deployment:
+# Backend Deployment:
 
 -Ensure that you have Java JDK and Maven installed on your machine.
 
@@ -20,7 +40,7 @@ java -jar target/sudoku-game.jar
 
 The backend server should now be running on http://localhost:8080.
 
-Frontend Deployment:
+# Frontend Deployment:
 
 -Copy the frontend code (HTML and JavaScript) into a separate directory on your machine.
 
@@ -32,7 +52,7 @@ Frontend Deployment:
 
 -The frontend should now be loaded in the browser, ready to interact with the backend server.
 
-Testing the Application:
+# Testing the Application:
 
 -Open the Sudoku game in the web browser.
 
