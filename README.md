@@ -1,4 +1,4 @@
-### sudoku_game
+## sudoku_game
 
 • Sudoku is played on a grid of 9 x 9 spaces.Within the rows and columns are 9 "squares" (made up of 3 x 3 spaces).
 
