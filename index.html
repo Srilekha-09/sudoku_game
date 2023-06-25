@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Game</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Start a new game
+            $("#start-btn").click(function () {
+                $.post("/api/start", function (data) {
+                    alert(data); // Display "READY" message
+                });
+            });
+
+            // Make a move
+            $("#move-btn").click(function () {
+                var row = $("#row-input").val();
+                var col = $("#col-input").val();
+                var num = $("#num-input").val();
+
+                var move = {
+                    row: row,
+                    col: col,
+                    num: num
+                };
+
+                $.ajax({
+                    url: "/api/move",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(move),
+                    success: function (response) {
+                        alert(response.status);
+                        if (response.status === "Invalid" && response.suggestedMove !== null) {
+                            alert("Suggested move: Row " + response.suggestedMove.row + ", Col " + response.suggestedMove.col);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Sudoku Game</h1>
+    <button id="start-btn">Start New Game</button>
+    <br><br>
+    <label>Row:</label>
+    <input type="number" id="row-input">
+    <br><br>
+    <label>Column:</label>
+    <input type="number" id="col-input">
+    <br><br>
+    <label>Number:</label>
+    <input type="number" id="num-input">
+    <br><br>
+    <button id="move-btn">Make Move</button>
+</body>
+</html>
